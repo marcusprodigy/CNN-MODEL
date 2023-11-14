@@ -17,19 +17,19 @@ const gapi = {
   url: [
     "https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/11/WhatsApp-Image-2023-11-14-at-08.44.20-1.jpeg?w=420&h=240&crop=1",
     "https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/06/ballots-1195065.jpg?w=420&h=240&crop=1",
-    "https://img.youtube.com/vi/g3RhQMd6F3k/sddefault.jpg",
+    "https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/11/53301036641_5609750f73_o-1-e1699362635987.jpg?w=420&h=240&crop=1",
     "https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/11/53301036641_5609750f73_o-1-e1699362635987.jpg?w=420&h=240&crop=1",
   ],
   titulo: [
     "Operação investiga fraude de R$ 451 mi em sistema ",
     "Câmara resiste e deixa em risco MP das Subvenções...",
-    "À CNN, ministro diz que encontrará aéreas para discutir...",
+    "Botafogo confirma demissão do técnico interino...",
     "Botafogo confirma demissão do técnico interino...",
   ],
   descricao: [
     "Operação investiga fraude de R$ 451 mi em sistema ",
     "Câmara resiste e deixa em risco MP das Subvenções...",
-    "À CNN, ministro diz que encontrará aéreas para discutir...",
+    "Botafogo confirma demissão do técnico interino...",
     "Botafogo confirma demissão do técnico interino...",
   ],
 };
@@ -99,9 +99,9 @@ export default function Home() {
               </p>
             </figcaption>
           </figure>
-          <section className="mt-10 grid grid-cols-2 gap-6 ">
+          <section className="mt-10 grid grid-cols-2 gap-6 transition-all md:grid-cols-4">
             {gapi.url.map((url, index) => (
-              <figure key={index}>
+              <figure key={index} className="">
                 <img
                   src={url}
                   alt="gapi.titulo[index]"
