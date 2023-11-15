@@ -39,8 +39,6 @@ export default function Home() {
     ],
   };
   
-  
-
   const [isTelaTrela, setIsTelaTrela] = useState(window.innerHeight < window.innerWidth);
 
   useEffect(() => {
@@ -59,9 +57,11 @@ export default function Home() {
       window.removeEventListener('resize', verificarTela);
     };
   }, []);
+
+
   return (
     <main className="bg-white h-screen w-screen relative overflow-y-scroll flex lg:justify-center ">
-      <header className=" z-10 w-full lg:w-10/12 h-24 flex mb-2 px-5 lg:px-0 fixed items-center  bg-white 2xl:w-6/12 ">
+      <header className=" z-10 w-full lg:w-10/12 h-24 flex mb-2 px-5 lg:px-0 fixed items-center  bg-white 2xl:w-8/12 ">
         <div className="w-1/2 h-10  ">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm67YgKoc81EwN-zTfDEqg8HukPIWF75f6bAaLgDXOKtMiZUrkoACkmLGaVzs9v70GGow&usqp=CAU"
@@ -89,7 +89,7 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <article className="w-full  2xl:w-6/12 lg:w-10/12 h-full mt-20 md:mt-36">
+      <article className="w-full 2xl:w-8/12  lg:w-10/12 h-full mt-20 md:mt-36">
         <section className="w-full h-10 mb-5 p-5  md:flex md:items-center">
           <h1 className="text-red-600 mb-3 transition-all duration-500 md:text-6xl xl:text-3xl mr-5 ">
             NEWS
@@ -105,9 +105,10 @@ export default function Home() {
             ))}
           </nav>
         </section>
-        <section className=" max-lg:hidden  grid grid-cols-4 gap-6">
+        <section className=" mt-10 max-lg:hidden  grid grid-cols-4 gap-6">
           {gapi.url.map((url, index) => (
-              <figure key={index} className="">
+            <button>
+              <figure key={index} className=" text-justify p-3 hover:bg-red-100 hover:rounded-lg hover:-translate-y-1 transition-all duration-200">
                 <figcaption>
                   <h3 className=" text-gray-800 font-bold text-lg ">
                     {gapi.titulo[index]}
@@ -117,12 +118,15 @@ export default function Home() {
                   </p>
                 </figcaption>
               </figure>
-            ))}</section> 
+            </button>
+          ))}
+        </section> 
             {isTelaTrela ?
-        <div className="flex justify-between mt-10">
+        <div className="flex justify-between ">
           <aside className=" max-lg:hidden w-1/4 ">
             {gapi.url.map((url, index) => (
-                <figure key={index} className=" mt-10 mb-10 ">
+              <button>
+                <figure key={index} className=" mb-16  text-justify p-3 hover:bg-red-100 hover:rounded-lg hover:-translate-y-1 transition-all  duration-200">
                   <figcaption>
                     <h3 className=" text-gray-800 font-bold text-lg xl:text-sm ">
                         {gapi.titulo[index]}
@@ -131,31 +135,33 @@ export default function Home() {
                       {gapi.descricao[index]}
                     </p>
                   </figcaption>
-                </figure>
+                </figure></button>
               ))}
             </aside>
           <section className="p-5 w-3/4 right-0">
-            <figure className=" relative flex ">
+            <button>
+            <figure className=" relative flex p-3  hover:rounded-lg hover:-translate-y-1 transition-all  duration-200 ">
               <img
                 src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/11/aviao_fab_brasilia.jpeg?w=1220&h=674&crop=1"
                 alt="Itamaraty"
                 className=" rounded-2xl w-2/4"
               />
               <figcaption className=" md:px-3 flex flex-col text-center">
-                <h3 className=" text-gray-800 font-bold text-lg text-justify mt-5 mb-3  md:text-3xl">
+                <h3 className=" text-gray-800 font-bold text-lg  text-left mt-5 mb-3  md:text-3xl">
                   Itamaraty busca informações se novos pedidos de repatriação da
                   Faixa de Gaza serão possíveis
                 </h3>
-                <p className=" text-gray-500 font-thin text-sm text-justify md:text-lg">
+                <p className=" text-gray-500 font-thin text-sm  text-left md:text-lg">
                   Um dia após a chegada dos 32 brasileiros e palestinos ao Brasil,
                   o Itamaraty já começa a planejar a tentativa de repatriação de
                   um segundo grupo...
                 </p>
               </figcaption>
-            </figure>
+            </figure></button>
             <section className="mt-10 grid grid-cols-2 gap-6 transition-all md:grid-cols-4">
               {gapi.url.map((url, index) => (
-                <figure key={index} className="">
+                <button>
+                <figure key={index} className=" text-justify p-3 hover:rounded-lg hover:-translate-y-1 transition-all duration-200">
                   <img
                     src={url}
                     alt="gapi.titulo[index]"
@@ -167,7 +173,7 @@ export default function Home() {
                     </h3>
                     
                   </figcaption>
-                </figure>
+                </figure></button>
               ))}
             </section>
           </section> 
@@ -216,12 +222,12 @@ export default function Home() {
       }
 
         <article className="md:grid  md:grid-cols-2  ">
-          <section className="mt-10 bg-gray-100 w-screen md:w-full  p-5">
+          <section className="mt-10 bg-white w-screen md:w-full  p-5">
             <h1 className=" text-black font-bold text-4xl">Novidades</h1>
 
             <div className="mt-10 grid grid-cols-2  gap-6 ">
               {gapi.url.map((url, index) => (
-                <figure key={index} className="w-auto h-auto">
+                <figure key={index} className="w-auto h-auto  p-3 hover:bg-red-100 hover:rounded-lg hover:-translate-y-1 transition-all  duration-200">
                   <img
                     src={url}
                     alt="gapi.titulo[index]"
@@ -244,7 +250,7 @@ export default function Home() {
 
             <div className="mt-10 grid grid-cols-2 gap-6 ">
               {gapi.url.map((url, index) => (
-                <figure key={index}>
+                <figure key={index} className="p-3 hover:bg-red-100 hover:rounded-lg hover:-translate-y-1 transition-all  duration-200">
                   <img
                     src={url}
                     alt="gapi.titulo[index]"
